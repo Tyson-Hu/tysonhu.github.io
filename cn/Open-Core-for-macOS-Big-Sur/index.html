@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>OpenCore for macOS Big Sur | Tyson's blog</title><meta name="keywords" content="macOS,黑苹果,OpenCore"><meta name="author" content="Tyson Hu"><meta name="copyright" content="Tyson Hu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="雷蛇灵刃15基础版（2018）macOS Big Sur 安装">
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OpenCore for macOS Big Sur | Tyson's blog</title><meta name="author" content="Tyson Hu"><meta name="copyright" content="Tyson Hu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="雷蛇灵刃15基础版（2018）macOS Big Sur 安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenCore for macOS Big Sur">
 <meta property="og:url" content="https://tianzhe.me/cn/Open-Core-for-macOS-Big-Sur/index.html">
@@ -13,13 +13,13 @@
 <meta property="article:tag" content="黑苹果">
 <meta property="article:tag" content="OpenCore">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.mos.cms.futurecdn.net/mjAxpFYMNMhnxSFYoMgWwB.jpg"><link rel="shortcut icon" href="/img/favicon.jpeg"><link rel="canonical" href="https://tianzhe.me/cn/Open-Core-for-macOS-Big-Sur/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="E3ldS1S2QwwG6Wt7hTzCzP8cEsZe4qy7GuQn5C9D5Fk"/><meta name="baidu-site-verification" content="RZuOf3nNVc"/><meta name="bing_site_verification" content="E3ldS1S2QwwG6Wt7hTzCzP8cEsZe4qy7GuQn5C9D5Fk"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://cdn.mos.cms.futurecdn.net/mjAxpFYMNMhnxSFYoMgWwB.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://tianzhe.me/cn/Open-Core-for-macOS-Big-Sur/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="E3ldS1S2QwwG6Wt7hTzCzP8cEsZe4qy7GuQn5C9D5Fk"/><meta name="baidu-site-verification" content="RZuOf3nNVc"/><meta name="bing_site_verification" content="E3ldS1S2QwwG6Wt7hTzCzP8cEsZe4qy7GuQn5C9D5Fk"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -30,7 +30,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -39,16 +39,19 @@
   },
   copyright: undefined,
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: true,
   islazyload: true,
-  isAnchor: true
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'OpenCore for macOS Big Sur',
   isPost: true,
@@ -56,69 +59,77 @@
   isHighlightShrink: undefined,
   isToc: true,
   postUpdate: '2020-09-01 19:52:55'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#212121')
         }
       }
-      win.activateLightMode = function () {
+      win.activateLightMode = () => {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
@@ -140,7 +151,7 @@
               const isNight = hour <= 6 || hour >= 18
               isNight ? activateDarkMode() : activateLightMode()
             }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
               if (saveToLocal.get('theme') === undefined) {
                 e.matches ? activateDarkMode() : activateLightMode()
               }
@@ -157,16 +168,37 @@
         }
       }
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
     }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/loading.gif" data-lazy-src="https://avatars1.githubusercontent.com/u/62329498?s=400&amp;u=20198ec972904a758bc5f6ba4888c5ac6b6270fb&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页/Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴/Arch</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签/Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类/Ctgy</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 留言板/MsgBoard</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 好友/Frds</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于👴 / About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/Mother-FKR/RazerBlade15-Base-Model-Hackintosh_macOS_Big_Sur/master/image/beta5-1.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tyson's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页/Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴/Arch</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签/Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类/Ctgy</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 留言板/MsgBoard</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 好友/Frds</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于👴 / About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OpenCore for macOS Big Sur</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-01T12:52:55.000Z" title="发表于 2020-07-01 08:52:55">2020-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-01T23:52:55.000Z" title="更新于 2020-09-01 19:52:55">2020-09-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/macOS/">macOS</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/macOS/OpenCore/">OpenCore</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">12.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>47分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="OpenCore for macOS Big Sur"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/cn/Open-Core-for-macOS-Big-Sur/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>警告⚠️：本目录仅为个人记录所准备，如果你也想尝试升级macOS11可以以此教程作为参考，本人不会为你操作过程中所出现的任何错误负责！请自己酌量而行。   </p>
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/loading.gif" data-lazy-src="https://avatars1.githubusercontent.com/u/62329498?s=400&amp;u=20198ec972904a758bc5f6ba4888c5ac6b6270fb&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页 / Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴 / Arch</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签 / Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类 / Ctgy</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 留言板 / MsgBoard</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 好友 / Frds</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于👴 / About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/Mother-FKR/RazerBlade15-Base-Model-Hackintosh_macOS_Big_Sur/master/image/beta5-1.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="Tyson's blog"><img class="site-icon" src= "/img/loading.gif" data-lazy-src="/img/favicon.jpeg"/><span class="site-name">Tyson's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页 / Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴 / Arch</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签 / Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类 / Ctgy</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 留言板 / MsgBoard</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 好友 / Frds</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于👴 / About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OpenCore for macOS Big Sur</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-01T12:52:55.000Z" title="发表于 2020-07-01 08:52:55">2020-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-01T23:52:55.000Z" title="更新于 2020-09-01 19:52:55">2020-09-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/macOS/">macOS</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/macOS/OpenCore/">OpenCore</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">12.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>47分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="OpenCore for macOS Big Sur"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/cn/Open-Core-for-macOS-Big-Sur/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>警告⚠️：本目录仅为个人记录所准备，如果你也想尝试升级macOS11可以以此教程作为参考，本人不会为你操作过程中所出现的任何错误负责！请自己酌量而行。   </p>
 <p><strong>EFI支持OTA或者通过下载好的更新程序app更新，因此建议先尝试这两种办法，其次再尝试U盘安装，再者查看我后面写的关于虚拟机安装教程！</strong><br><strong>EFI support OTA &amp; app update, recommend use these two method first, then try my virtual machine tutorial.</strong>   </p>
 <p>由于我即将开学，这几天还在搬家+布置网络，因此村里刚通网，对此我非常抱歉。在后续的时间我将降低我的更新频率，学业为重希望大家理解，不过我也向大伙们保证不会停更的（日更我肯定是肝不动了，毕竟👴每周都要做Lab Report，因此我尽量保持周更。）</p>
-<h1 id="文件说明-x2F-File-Description"><a href="#文件说明-x2F-File-Description" class="headerlink" title="文件说明 &#x2F; File Description"></a>文件说明 &#x2F; File Description</h1><ul>
+<h1 id="文件说明-File-Description"><a href="#文件说明-File-Description" class="headerlink" title="文件说明 &#x2F; File Description"></a>文件说明 &#x2F; File Description</h1><ul>
 <li><p><strong>CLOVER</strong></p>
 <ul>
 <li><code>CLOVER</code>引导<code>EFI</code>，版本<code>5103</code>，对应系统 <code>macOS 10.15.4</code>。由于我已经转入 <code>OC</code> 引导，因此不会再进行更新，放在这里只是为了给那些需要使用 <code>5120</code> 的人作为参考</li>
@@ -248,7 +280,7 @@
 <li>看到这里如果你真的打算继续安装macOS 11。那么建议你最好更换为博通的网卡进行使用，USB网卡和英特尔网卡驱动在11里仍然存在众多问题，<del>现无法在11里运行</del> (USB网卡现在可以使用，但需要关闭SIP)。</li>
 <li><strong>同机型或者相似机型的同学们可以参考我的efi，当然在你使用我的efi的时候记得更改里面的三码（我忘改了😭），以免造成设备冲突！</strong></li>
 </ul>
-<h1 id="基础配置-amp-知识"><a href="#基础配置-amp-知识" class="headerlink" title="基础配置 &amp; 知识"></a>基础配置 &amp; 知识</h1><p>由于许多核心Kext都对CLOVER引导停止了维护，OpenCore作为新力军建议提前 研究 &#x2F; 制作 引导，以适应未来的场景。</p>
+<h1 id="基础配置-知识"><a href="#基础配置-知识" class="headerlink" title="基础配置 &amp; 知识"></a>基础配置 &amp; 知识</h1><p>由于许多核心Kext都对CLOVER引导停止了维护，OpenCore作为新力军建议提前 研究 &#x2F; 制作 引导，以适应未来的场景。</p>
 <ul>
 <li>CLOVER<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/EmeryWan/Razer-Blade-15-2018-Base-Hackintosh">Razer Blade 15 Base Model (2018) [Clover] [10.15.3 &#x2F; Catalina]</a></li>
@@ -298,15 +330,15 @@
 <li><a href="#8%E5%8F%82%E8%80%83">参考</a></li>
 <li><a href="#9%E5%8F%98%E6%9B%B4%E7%9B%AE%E5%BD%95">变更目录</a></li>
 </ul>
-<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><h2 id="8-x2F-19-更新"><a href="#8-x2F-19-更新" class="headerlink" title="8&#x2F;19 更新"></a>8&#x2F;19 更新</h2><p>这次官方推迟了一天发布 <code>beta5</code>，版本号 <code>20a5354i</code>，正常 <code>OTA</code> 更新即可。增量包大小 <code>7.15GB</code>，全量包大小 <code>12.13GB</code>。目前版本已无什么大的BUG，更多的为UI BUG，可以日常使用。 <code>Public Beta2</code> 内容与 <code>beta5</code> 一致(版本号也均为 <code>20A5354i</code>)，用哪个看你自己了。 </p>
+<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><h2 id="8-19-更新"><a href="#8-19-更新" class="headerlink" title="8&#x2F;19 更新"></a>8&#x2F;19 更新</h2><p>这次官方推迟了一天发布 <code>beta5</code>，版本号 <code>20a5354i</code>，正常 <code>OTA</code> 更新即可。增量包大小 <code>7.15GB</code>，全量包大小 <code>12.13GB</code>。目前版本已无什么大的BUG，更多的为UI BUG，可以日常使用。 <code>Public Beta2</code> 内容与 <code>beta5</code> 一致(版本号也均为 <code>20A5354i</code>)，用哪个看你自己了。 </p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/beta5.jpg" alt="11 beta5"></p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/beta5-1.jpeg" alt="11 beta5"></p>
-<h2 id="8-x2F-13-更新"><a href="#8-x2F-13-更新" class="headerlink" title="8&#x2F;13 更新"></a>8&#x2F;13 更新</h2><p>对 <code>AirportBrcmFixup</code> 进行了修补， 现在 <code>DW1560 / Brcm94352z</code> 在 <code>Beta4</code> 和 <code>Public Beta</code> 均可正常运行，不会再卡开机boot。    </p>
+<h2 id="8-13-更新"><a href="#8-13-更新" class="headerlink" title="8&#x2F;13 更新"></a>8&#x2F;13 更新</h2><p>对 <code>AirportBrcmFixup</code> 进行了修补， 现在 <code>DW1560 / Brcm94352z</code> 在 <code>Beta4</code> 和 <code>Public Beta</code> 均可正常运行，不会再卡开机boot。    </p>
 <p><code>Beta4</code> 与 <code>Public Beta</code> 内容一致，只是变更了版本号而已，这里我选择使用 <code>Public Beta</code>。   </p>
 <p>版本说明：<br><code>20A5343j</code> ➡️ <code>Public Beta</code><br><code>20A5343i</code> ➡️ <code>Beta4</code></p>
 <p>附上截图：<br><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/publicbeta1.png" alt="11 publicbeta"></p>
-<h2 id="8-x2F-4-更新"><a href="#8-x2F-4-更新" class="headerlink" title="8&#x2F;4 更新"></a>8&#x2F;4 更新</h2><p>苹果官方推出了 macOS Big Sur Beta4，更新过程与之前一致。由于我在 <code>beta4</code> 中有许多软件都出现了问题，因此我决定回到 <code>beta3</code> 版本继续使用，所以这里并没有放出截图。公测版(Public Beta)与 <code>beta4</code> 内容一致，只是更改了版本号。<strong>EFI 现已修复，可以进行 <code>ota</code> 升级至 <code>beta4</code></strong></p>
-<h2 id="7-x2F-22-更新"><a href="#7-x2F-22-更新" class="headerlink" title="7&#x2F;22 更新"></a>7&#x2F;22 更新</h2><p>苹果官方推出了 macOS Big Sur Beta3，图如下，大小为4.96GB，全量包为12GB多，正常OTA更新即可。</p>
+<h2 id="8-4-更新"><a href="#8-4-更新" class="headerlink" title="8&#x2F;4 更新"></a>8&#x2F;4 更新</h2><p>苹果官方推出了 macOS Big Sur Beta4，更新过程与之前一致。由于我在 <code>beta4</code> 中有许多软件都出现了问题，因此我决定回到 <code>beta3</code> 版本继续使用，所以这里并没有放出截图。公测版(Public Beta)与 <code>beta4</code> 内容一致，只是更改了版本号。<strong>EFI 现已修复，可以进行 <code>ota</code> 升级至 <code>beta4</code></strong></p>
+<h2 id="7-22-更新"><a href="#7-22-更新" class="headerlink" title="7&#x2F;22 更新"></a>7&#x2F;22 更新</h2><p>苹果官方推出了 macOS Big Sur Beta3，图如下，大小为4.96GB，全量包为12GB多，正常OTA更新即可。</p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/beta3.jpg" alt="11 beta3"></p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/beta3-2.png" alt="11 beta3"></p>
 <p>更新完成，附上截图：</p>
@@ -323,7 +355,7 @@
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/beta3-8.png" alt="11 beta3"></p>
 <h3 id="关于CLT的修复"><a href="#关于CLT的修复" class="headerlink" title="关于CLT的修复"></a>关于<code>CLT</code>的修复</h3><p>前往 <a target="_blank" rel="noopener" href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a> 登陆苹果账号并下载 <code>Xcode 12 beta</code> 和 <code>Command Line Tools for Xcode 12 beta3</code>,下载完成后双击安装 <code>CLT</code> 即可，<code>Xcode 12</code> 需要解压xip文件后拖入应用程序完成安装，<strong>同时删除老版本 <code>Xcode</code></strong>   </p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/CLT.png" alt="CLT"></p>
-<h2 id="7-x2F-16-更新-CLOVER-v5120"><a href="#7-x2F-16-更新-CLOVER-v5120" class="headerlink" title="7&#x2F;16 更新 (CLOVER v5120)"></a>7&#x2F;16 更新 (<code>CLOVER v5120</code>)</h2><p><code>CloverBootloader</code> 发布了最新版<code>CLOVER</code>引导 <code>v5.0 r5120</code> ，此次更新从 <code>OpenCore</code> 那边搬来了 <code>OcQuirks.efi</code> 和 <code>OpenRuntime.efi</code> 以实现引导 <code>Big Sur</code>。原文如下</p>
+<h2 id="7-16-更新-CLOVER-v5120"><a href="#7-16-更新-CLOVER-v5120" class="headerlink" title="7&#x2F;16 更新 (CLOVER v5120)"></a>7&#x2F;16 更新 (<code>CLOVER v5120</code>)</h2><p><code>CloverBootloader</code> 发布了最新版<code>CLOVER</code>引导 <code>v5.0 r5120</code> ，此次更新从 <code>OpenCore</code> 那边搬来了 <code>OcQuirks.efi</code> 和 <code>OpenRuntime.efi</code> 以实现引导 <code>Big Sur</code>。原文如下</p>
 <blockquote>
 <p>   “This release includes OcQuirks.efi and OpenRuntime.efi copied from OpenCore project.”</p>
 <p> “OcQuirks.plist embedded into config.plist and present in Clover GUI as separate menu to tune settings on the fly.”</p>
@@ -331,7 +363,7 @@
 </blockquote>
 <p>这里附上原文章地址供大家下载 <a target="_blank" rel="noopener" href="https://github.com/CloverHackyColor/CloverBootloader/releases/tag/5120">点击跳跃至 <code>CloverBootloader</code></a></p>
 <p>考虑到还是有不少人不会配置 <code>OC</code>，我把自己当时使用的CLOVER放入本文，希望可以对你有所帮助。（<code>CLOVER</code> 版本为 <code>v5103</code>，对应系统版本为 <code>10.15.4</code>）</p>
-<h2 id="7-x2F-15-更新-（”非-Big-Sur“-x2F-Catalina）"><a href="#7-x2F-15-更新-（”非-Big-Sur“-x2F-Catalina）" class="headerlink" title="7&#x2F;15 更新 （”非 Big Sur“ &#x2F; Catalina）"></a>7&#x2F;15 更新 （”<strong>非 <code>Big Sur</code></strong>“ &#x2F; <code>Catalina</code>）</h2><ol>
+<h2 id="7-15-更新-（”非-Big-Sur“-Catalina）"><a href="#7-15-更新-（”非-Big-Sur“-Catalina）" class="headerlink" title="7&#x2F;15 更新 （”非 Big Sur“ &#x2F; Catalina）"></a>7&#x2F;15 更新 （”<strong>非 <code>Big Sur</code></strong>“ &#x2F; <code>Catalina</code>）</h2><ol>
 <li>苹果官方推送 <code>macOS 10.15.6</code> 正式版（版本号 <code>19G73</code> ，日常OTA升级即可，无其他问题。</li>
 <li>苹果官方推送 <code>Safari 14.0</code> 测试版 [适用于 <code>macOS 10.15 及更低版本</code>]，内容与 Big Sur 版本里的 <code>Safari</code> 同步。</li>
 </ol>
@@ -339,7 +371,7 @@
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/15.6.jpg" alt="10.15.6正式版"></p>
 <p>更新完毕： </p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/15.6-2.jpg" alt="10.15.6正式版"></p>
-<h2 id="7-x2F-11-更新"><a href="#7-x2F-11-更新" class="headerlink" title="7&#x2F;11 更新"></a>7&#x2F;11 更新</h2><p>黑苹果大佬更新了他自己制作的恢复镜像，对于新手来说应该是福音！！！</p>
+<h2 id="7-11-更新"><a href="#7-11-更新" class="headerlink" title="7&#x2F;11 更新"></a>7&#x2F;11 更新</h2><p>黑苹果大佬更新了他自己制作的恢复镜像，对于新手来说应该是福音！！！</p>
 <p><a target="_blank" rel="noopener" href="https://blog.daliansky.net/WeChat-First-macOS-Big-Sur-Beta-2-Installer-for-OpenCore-and-PE-dual-EFI-partition-original-image.html">【黑果小兵】【微信首发】macOS Big Sur Beta 2 Installer for OpenCore and PE双EFI分区原版镜像</a>   </p>
 <p>这里简略的搬运一些描述 ⬇️    </p>
 <p>特点：</p>
@@ -349,7 +381,7 @@
 <li><code>PE</code> 可连接网络，可远程协助，集成 <code>向日葵</code> 和 <code>AnyDesk</code></li>
 </ul>
 <p><em>©️ 搬运自<a target="_blank" rel="noopener" href="https://blog.daliansky.net/">黑果小兵的部落阁</a>，版权为Daliansky所有，侵权立删！©️</em></p>
-<h2 id="7-x2F-7-更新"><a href="#7-x2F-7-更新" class="headerlink" title="7&#x2F;7 更新"></a>7&#x2F;7 更新</h2><p>苹果刚发布了macOS BigSur的beta2版本，同样为全量包，大小将近10GB，使用普通的OTA更新即可。（下载可能略慢，如果进度条不动请耐心等待，这并不是卡了）</p>
+<h2 id="7-7-更新"><a href="#7-7-更新" class="headerlink" title="7&#x2F;7 更新"></a>7&#x2F;7 更新</h2><p>苹果刚发布了macOS BigSur的beta2版本，同样为全量包，大小将近10GB，使用普通的OTA更新即可。（下载可能略慢，如果进度条不动请耐心等待，这并不是卡了）</p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/beta2.jpg" alt="beta2"></p>
 <p>下面为更新完成的样子（感觉就变了个版本号…..）</p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/info2.png" alt="info2"></p>
@@ -487,7 +519,7 @@
 <td align="center">没PD快充，当然你可以自己试试诱骗器</td>
 </tr>
 </tbody></table>
-<h3 id="1-1-硬件更换-x2F-硬件升级"><a href="#1-1-硬件更换-x2F-硬件升级" class="headerlink" title="[1-1]硬件更换 &#x2F; 硬件升级"></a>[1-1]硬件更换 &#x2F; 硬件升级</h3><p><strong>网卡 &amp; 蓝牙</strong> </p>
+<h3 id="1-1-硬件更换-硬件升级"><a href="#1-1-硬件更换-硬件升级" class="headerlink" title="[1-1]硬件更换 &#x2F; 硬件升级"></a>[1-1]硬件更换 &#x2F; 硬件升级</h3><p><strong>网卡 &amp; 蓝牙</strong> </p>
 <table>
 <thead>
 <tr>
@@ -809,7 +841,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo trimforce enable</span><br></pre></td></tr></table></figure>
 
 <p>完成后系统会要求你重启</p>
-<h2 id="6-2-洗白序列号-x2F-三码"><a href="#6-2-洗白序列号-x2F-三码" class="headerlink" title="[6-2]洗白序列号 &#x2F; 三码"></a>[6-2]洗白序列号 &#x2F; 三码</h2><p>自行进入OCC打开 <code>config.plist</code> ,在 <code>PlatformInfo</code> 里的 <code>Generic</code> 生成三码即可</p>
+<h2 id="6-2-洗白序列号-三码"><a href="#6-2-洗白序列号-三码" class="headerlink" title="[6-2]洗白序列号 &#x2F; 三码"></a>[6-2]洗白序列号 &#x2F; 三码</h2><p>自行进入OCC打开 <code>config.plist</code> ,在 <code>PlatformInfo</code> 里的 <code>Generic</code> 生成三码即可</p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/occ.jpg" alt="occ"></p>
 <p><strong>注意，如果你打算用 OpenCore 引导 Windows，请将 <code>System UUID</code> 一栏修改成你BIOS对应的UUID，否则导致Windows的所有软件激活失效！⚠️</strong></p>
 <h2 id="6-3-电池不显示-最新版的-VirtualSMC-已修复该问题！"><a href="#6-3-电池不显示-最新版的-VirtualSMC-已修复该问题！" class="headerlink" title="[6-3]电池不显示 (最新版的 VirtualSMC 已修复该问题！)"></a>[6-3]电池不显示 <strong>(最新版的 <code>VirtualSMC</code> 已修复该问题！)</strong></h2><p><del>将kext里的 <code>SMCBatteryManager</code> 换成 <code>ACPIBatteryManager</code> 即可解决问题（前提是你的dsdt是补好的！）</del></p>
@@ -844,7 +876,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/mlch911/one-key-hidpi/master/hidpi.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <p><em><code>one-key-hidpi</code>由 <code>xzhih</code> 大佬开发，并由 <code>mlch911</code> 进行fork并对目标位置进行更改。在这里再次感谢！<a target="_blank" rel="noopener" href="https://github.com/xzhih/one-key-hidpi/issues/136">点击进入issue查看详情🔎</a></em>   </p>
 <p>接着按照你自己的机型设置对应的设备和分辨率，设置完成后重启即可生效。  </p>
-<h2 id="6-6-关闭-SIP-amp-Authenticated-root"><a href="#6-6-关闭-SIP-amp-Authenticated-root" class="headerlink" title="[6-6]关闭 SIP &amp; Authenticated-root"></a>[6-6]关闭 <code>SIP</code> &amp; Authenticated-root</h2><p>由于在 macOS Big Sur 中，苹果更新了安全机制，新增了 <code>authenticated root</code> 这也使得开机从只读快照启动而非直接系统文件启动，因此老方法 <code>E7030000</code> 已失效，但是根据 dortania 向导的提示，现在需使用 <code>FF0F0000</code> 关闭 <code>SIP</code>。</p>
+<h2 id="6-6-关闭-SIP-Authenticated-root"><a href="#6-6-关闭-SIP-Authenticated-root" class="headerlink" title="[6-6]关闭 SIP &amp; Authenticated-root"></a>[6-6]关闭 <code>SIP</code> &amp; Authenticated-root</h2><p>由于在 macOS Big Sur 中，苹果更新了安全机制，新增了 <code>authenticated root</code> 这也使得开机从只读快照启动而非直接系统文件启动，因此老方法 <code>E7030000</code> 已失效，但是根据 dortania 向导的提示，现在需使用 <code>FF0F0000</code> 关闭 <code>SIP</code>。</p>
 <p><img src= "/img/loading.gif" data-lazy-src="/cn/Open-Core-for-macOS-Big-Sur/image/sip-1.png" alt="sip"></p>
 <p>具体操作：<br>打开 <code>config.plist</code>  </p>
 <ul>
@@ -1188,7 +1220,7 @@
 <ul>
 <li>修复SIP问题</li>
 <li>修复Authenticated-root问题</li>
-<li>修复系统写入权限&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#x2F;[Beta3]貌似已失效，后续会进行测试&#x2F;</li>
+<li>修复系统写入权限&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2F;[Beta3]貌似已失效，后续会进行测试&#x2F;</li>
 </ul>
 </li>
 <li><p>7&#x2F;22</p>
@@ -1263,7 +1295,7 @@
 <li>Disable update timer during sleep&#x2F;shutdown phase, otherwise reading of SMM prevents sleeping with closed lid.</li>
 <li>Use DBGLOG for logging</li>
 <li>Fix module version and remove unused variable.</li>
-<li><strong>Co-authored-by: lvs1974<br><a href="mailto:&#x6c;&#x76;&#115;&#49;&#57;&#55;&#52;&#x40;&#x75;&#x73;&#x65;&#x72;&#115;&#46;&#110;&#111;&#x72;&#101;&#x70;&#x6c;&#121;&#46;&#103;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#x6c;&#x76;&#115;&#49;&#57;&#55;&#52;&#x40;&#x75;&#x73;&#x65;&#x72;&#115;&#46;&#110;&#111;&#x72;&#101;&#x70;&#x6c;&#121;&#46;&#103;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;</a></strong></li>
+<li><strong>Co-authored-by: lvs1974<br><a href="mailto:&#x6c;&#x76;&#115;&#49;&#x39;&#x37;&#52;&#x40;&#x75;&#115;&#x65;&#114;&#x73;&#x2e;&#x6e;&#111;&#114;&#x65;&#x70;&#x6c;&#x79;&#46;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;">&#x6c;&#x76;&#115;&#49;&#x39;&#x37;&#52;&#x40;&#x75;&#115;&#x65;&#114;&#x73;&#x2e;&#x6e;&#111;&#114;&#x65;&#x70;&#x6c;&#x79;&#46;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;</a></strong></li>
 </ul>
 </li>
 </ul>
@@ -1437,7 +1469,7 @@
 <blockquote>
 <p>文章大致已经完成  ✅ ，后续将为各种小修小补…</p>
 </blockquote>
-<h2 id="未来计划-x2F-Plans-："><a href="#未来计划-x2F-Plans-：" class="headerlink" title="未来计划 &#x2F; Plans ："></a>未来计划 &#x2F; Plans ：</h2><ul>
+<h2 id="未来计划-Plans-："><a href="#未来计划-Plans-：" class="headerlink" title="未来计划 &#x2F; Plans ："></a>未来计划 &#x2F; Plans ：</h2><ul>
 <li><del>增加BIOS修改的图文教程 &#x2F; Add detail for BIOS’s tutorial  [七月底 &#x2F; Late July]</del> [已完成 &#x2F; Finished] ✅</li>
 <li><del>独立变更目录 &#x2F; Separate <code>changelog</code> to a individual file [七月底 &#x2F; Late July]</del> [已完成 &#x2F; Finished] ✅</li>
 <li><del>增加英语版本教程 &#x2F; Add <code>English</code> version [八月底 &#x2F; Late August]</del> ❌<ul>
@@ -1445,7 +1477,7 @@
 </ul>
 </li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://tianzhe.me/">Tyson Hu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tianzhe.me/cn/Open-Core-for-macOS-Big-Sur/">https://tianzhe.me/cn/Open-Core-for-macOS-Big-Sur/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tianzhe.me" target="_blank">Tyson's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/macOS/">macOS</a><a class="post-meta__tags" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/">黑苹果</a><a class="post-meta__tags" href="/tags/OpenCore/">OpenCore</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.mos.cms.futurecdn.net/mjAxpFYMNMhnxSFYoMgWwB.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/cn/Hexo-Setup/"><img class="prev-cover" src= "/img/loading.gif" data-lazy-src="https://tommy.net.cn/2020/07/07/upgrade-hexo-to-v4-2-1/hexo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hexo Setup</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Twikoo</span><span class="switch-btn"></span><span class="second-comment">Valine</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://avatars1.githubusercontent.com/u/62329498?s=400&amp;u=20198ec972904a758bc5f6ba4888c5ac6b6270fb&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tyson Hu</div><div class="author-info__description">一个因突发奇想而创建的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Tyson-Hu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tyson-Hu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2535280450&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://www.instagram.com/tyson.hu/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://twitter.com/tysonhu_twr" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a><a class="social-icon" href="mailto:tianzheh@buffalo.edu" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论首选Twikoo，如果无法使用或者延迟过高可尝试Valine。邮箱处填写QQ邮箱即可获取QQ头像。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E-x2F-File-Description"><span class="toc-number">1.</span> <span class="toc-text">文件说明 &#x2F; File Description</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-number">2.</span> <span class="toc-text">写在最前</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-amp-%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">基础配置 &amp; 知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-number">5.</span> <span class="toc-text">更新</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-x2F-19-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.1.</span> <span class="toc-text">8&#x2F;19 更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-x2F-13-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.2.</span> <span class="toc-text">8&#x2F;13 更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-x2F-4-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.3.</span> <span class="toc-text">8&#x2F;4 更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-x2F-22-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.4.</span> <span class="toc-text">7&#x2F;22 更新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ECLT%E7%9A%84%E4%BF%AE%E5%A4%8D"><span class="toc-number">5.4.1.</span> <span class="toc-text">关于CLT的修复</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-x2F-16-%E6%9B%B4%E6%96%B0-CLOVER-v5120"><span class="toc-number">5.5.</span> <span class="toc-text">7&#x2F;16 更新 (CLOVER v5120)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-x2F-15-%E6%9B%B4%E6%96%B0-%EF%BC%88%E2%80%9D%E9%9D%9E-Big-Sur%E2%80%9C-x2F-Catalina%EF%BC%89"><span class="toc-number">5.6.</span> <span class="toc-text">7&#x2F;15 更新 （”非 Big Sur“ &#x2F; Catalina）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-x2F-11-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.7.</span> <span class="toc-text">7&#x2F;11 更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-x2F-7-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.8.</span> <span class="toc-text">7&#x2F;7 更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">一些问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%A1%AC%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">7.</span> <span class="toc-text">[1]硬件介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%A1%AC%E4%BB%B6%E6%9B%B4%E6%8D%A2-x2F-%E7%A1%AC%E4%BB%B6%E5%8D%87%E7%BA%A7"><span class="toc-number">7.0.1.</span> <span class="toc-text">[1-1]硬件更换 &#x2F; 硬件升级</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="toc-number">8.</span> <span class="toc-text">[2]最终效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%A7%A3%E9%94%81BIOS"><span class="toc-number">9.</span> <span class="toc-text">[3]解锁BIOS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Base%E7%89%88-BIOS-%E8%A7%A3%E9%94%81"><span class="toc-number">9.1.</span> <span class="toc-text">[3-1]Base版 BIOS 解锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-1-%E6%8F%90%E5%8F%96%E6%9C%BA%E5%99%A8%E7%8E%B0%E4%BD%BF%E7%94%A8%E7%9A%84-BIOS"><span class="toc-number">9.2.</span> <span class="toc-text">[3-1-1]提取机器现使用的 BIOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Advanced%E7%89%88-BIOS%E8%A7%A3%E9%94%81"><span class="toc-number">9.3.</span> <span class="toc-text">[3-2]Advanced版 BIOS解锁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number">10.</span> <span class="toc-text">[4]安装前的准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-BIOS%E8%AE%BE%E7%BD%AE"><span class="toc-number">10.1.</span> <span class="toc-text">[4-1]BIOS设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="toc-number">10.2.</span> <span class="toc-text">[4-2]软件下载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-number">11.</span> <span class="toc-text">[5]系统安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%AD%A5%E9%AA%A4%E5%9D%87%E5%9C%A8macOS%E4%B8%8A%E6%89%A7%E8%A1%8C"><span class="toc-number">11.1.</span> <span class="toc-text">以下步骤均在macOS上执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%AD%A5%E9%AA%A4%E5%9D%87%E5%9C%A8Window%E4%B8%8B%E6%89%A7%E8%A1%8C"><span class="toc-number">11.2.</span> <span class="toc-text">以下步骤均在Window下执行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E4%B8%80%E4%BA%9B%E4%BC%98%E5%8C%96"><span class="toc-number">12.</span> <span class="toc-text">[6]一些优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E6%89%93%E5%BC%80TRIM"><span class="toc-number">12.1.</span> <span class="toc-text">[6-1] 打开TRIM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E6%B4%97%E7%99%BD%E5%BA%8F%E5%88%97%E5%8F%B7-x2F-%E4%B8%89%E7%A0%81"><span class="toc-number">12.2.</span> <span class="toc-text">[6-2]洗白序列号 &#x2F; 三码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E7%94%B5%E6%B1%A0%E4%B8%8D%E6%98%BE%E7%A4%BA-%E6%9C%80%E6%96%B0%E7%89%88%E7%9A%84-VirtualSMC-%E5%B7%B2%E4%BF%AE%E5%A4%8D%E8%AF%A5%E9%97%AE%E9%A2%98%EF%BC%81"><span class="toc-number">12.3.</span> <span class="toc-text">[6-3]电池不显示 (最新版的 VirtualSMC 已修复该问题！)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E7%8A%B6%E6%80%81%E6%A0%8F%E7%9A%84%E5%8D%A1%E9%A1%BF"><span class="toc-number">12.4.</span> <span class="toc-text">[6-4]状态栏的卡顿</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-1-%E5%88%A0%E9%99%A4-WiFiAgent-%E8%A7%A3%E9%94%81%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98"><span class="toc-number">12.4.1.</span> <span class="toc-text">[6-4-1]删除 WiFiAgent 解锁卡顿问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-2-%E7%9B%B4%E6%8E%A5%E6%9B%B4%E6%8D%A2%E5%8D%9A%E9%80%9A%E7%BD%91%E5%8D%A1"><span class="toc-number">12.4.2.</span> <span class="toc-text">[6-4-2]直接更换博通网卡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-%E5%BC%80%E5%90%AFHiDPI"><span class="toc-number">12.5.</span> <span class="toc-text">[6-5]开启HiDPI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-1-%E5%B0%86%E6%97%A7%E7%B3%BB%E7%BB%9F%E7%9A%84-HiDPI-%E8%BD%AC%E7%A7%BB%E5%88%B0-macOS-11-%E9%9C%80%E8%A6%81%E4%BD%A0%E6%97%A7%E7%B3%BB%E7%BB%9F%E5%B7%B2%E5%BC%80%E5%90%AFHiDPI"><span class="toc-number">12.5.1.</span> <span class="toc-text">[6-5-1]将旧系统的 HiDPI 转移到 macOS 11 (需要你旧系统已开启HiDPI)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-2-%E9%80%9A%E8%BF%87-one-key-hidpi-%E5%BC%80%E5%90%AF"><span class="toc-number">12.5.2.</span> <span class="toc-text">[6-5-2]通过 one-key-hidpi 开启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-6-%E5%85%B3%E9%97%AD-SIP-amp-Authenticated-root"><span class="toc-number">12.6.</span> <span class="toc-text">[6-6]关闭 SIP &amp; Authenticated-root</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-7-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E5%BF%AB%E7%85%A7-%E8%BF%99%E9%87%8C%E5%B9%B6%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BF%AE%E6%94%B9%EF%BC%8C%E5%9B%A0%E4%B8%BA%E4%BC%9A%E5%A4%B1%E5%8E%BBOTA%E7%9A%84%E6%9C%BA%E4%BC%9A%EF%BC%81"><span class="toc-number">12.7.</span> <span class="toc-text">[6-7]修改系统快照 [这里并不推荐修改，因为会失去OTA的机会！]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-8-%E5%90%AF%E7%94%A8%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6"><span class="toc-number">12.8.</span> <span class="toc-text">[6-8]启用修改系统文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-9-USB%E5%AE%9A%E5%88%B6%E9%A9%B1%E5%8A%A8"><span class="toc-number">12.9.</span> <span class="toc-text">[6-9]USB定制驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-10-%E4%BF%AE%E5%A4%8DRecovery%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5"><span class="toc-number">12.10.</span> <span class="toc-text">[6-10]修复Recovery无法进入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-11-%E8%A7%A3%E5%86%B3App-Store%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">12.11.</span> <span class="toc-text">[6-11]解决App Store无法登录的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-12-%E4%BF%AE%E6%94%B9%E6%98%BE%E5%AD%98%E5%A4%A7%E5%B0%8F-%E5%BF%83%E7%90%86%E4%BC%98%E5%8C%96"><span class="toc-number">12.12.</span> <span class="toc-text">[6-12]修改显存大小 (心理优化)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-13-%E8%A7%A3%E5%86%B3-macOS-%E4%B8%8E-Windows-%E6%97%B6%E9%97%B4%E4%B8%8D%E5%90%8C%E6%AD%A5"><span class="toc-number">12.13.</span> <span class="toc-text">[6-13]解决 macOS 与 Windows 时间不同步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E9%99%84%E5%8A%A0%EF%BC%9AU%E7%9B%98%E7%9B%B4%E8%A3%85"><span class="toc-number">13.</span> <span class="toc-text">[7]附加：U盘直装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%EF%BC%9A"><span class="toc-number">13.1.</span> <span class="toc-text">准备：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Config-%E4%BF%AE%E6%94%B9-%EF%BC%88OpenCore-0-6-0%EF%BC%89%EF%BC%9A"><span class="toc-number">13.2.</span> <span class="toc-text">Config 修改 （OpenCore 0.6.0）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5U%E7%9B%98"><span class="toc-number">13.3.</span> <span class="toc-text">将安装文件写入U盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">13.4.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%A1%B9%E9%97%AE%E9%A2%98"><span class="toc-number">13.5.</span> <span class="toc-text">启动项问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E5%8F%82%E8%80%83"><span class="toc-number">14.</span> <span class="toc-text">[8]参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E5%8F%98%E6%9B%B4%E7%9B%AE%E5%BD%95"><span class="toc-number">15.</span> <span class="toc-text">[9]变更目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E8%AE%A1%E5%88%92-x2F-Plans-%EF%BC%9A"><span class="toc-number">15.1.</span> <span class="toc-text">未来计划 &#x2F; Plans ：</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/en/Raft/" title="Consensus Algorithm - Raft"><img src= "/img/loading.gif" data-lazy-src="https://raft.github.io/logo/solo.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Consensus Algorithm - Raft"/></a><div class="content"><a class="title" href="/en/Raft/" title="Consensus Algorithm - Raft">Consensus Algorithm - Raft</a><time datetime="2023-05-02T13:57:01.000Z" title="发表于 2023-05-02 09:57:01">2023-05-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/cn/algo-intro/" title="Leetcode 刷题前言"><img src= "/img/loading.gif" data-lazy-src="https://repository-images.githubusercontent.com/408927712/1c5ce46e-266f-43f0-b543-75bf341239b5" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Leetcode 刷题前言"/></a><div class="content"><a class="title" href="/cn/algo-intro/" title="Leetcode 刷题前言">Leetcode 刷题前言</a><time datetime="2022-08-08T05:12:58.000Z" title="发表于 2022-08-08 01:12:58">2022-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/en/algo-intro/" title="Algorithm Introduction"><img src= "/img/loading.gif" data-lazy-src="https://repository-images.githubusercontent.com/408927712/1c5ce46e-266f-43f0-b543-75bf341239b5" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Algorithm Introduction"/></a><div class="content"><a class="title" href="/en/algo-intro/" title="Algorithm Introduction">Algorithm Introduction</a><time datetime="2022-08-08T01:39:11.000Z" title="发表于 2022-08-07 21:39:11">2022-08-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/cn/LO3-6-Immutability/" title="CSE116的学习笔记-Lec3-6:Immutability"><img src= "/img/loading.gif" data-lazy-src="https://upload.wikimedia.org/wikipedia/commons/8/85/Scala_logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSE116的学习笔记-Lec3-6:Immutability"/></a><div class="content"><a class="title" href="/cn/LO3-6-Immutability/" title="CSE116的学习笔记-Lec3-6:Immutability">CSE116的学习笔记-Lec3-6:Immutability</a><time datetime="2020-12-27T18:22:31.000Z" title="发表于 2020-12-27 13:22:31">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/cn/LO5-6-WebSocket-App/" title="CSE116的学习笔记-Lec5-6:WebSocket_App"><img src= "/img/loading.gif" data-lazy-src="https://upload.wikimedia.org/wikipedia/commons/8/85/Scala_logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSE116的学习笔记-Lec5-6:WebSocket_App"/></a><div class="content"><a class="title" href="/cn/LO5-6-WebSocket-App/" title="CSE116的学习笔记-Lec5-6:WebSocket_App">CSE116的学习笔记-Lec5-6:WebSocket_App</a><time datetime="2020-12-27T17:50:56.000Z" title="发表于 2020-12-27 12:50:56">2020-12-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Tyson Hu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">生而为人，我很抱歉</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tianzhe.me/">Tyson Hu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tianzhe.me/cn/Open-Core-for-macOS-Big-Sur/">https://tianzhe.me/cn/Open-Core-for-macOS-Big-Sur/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tianzhe.me" target="_blank">Tyson's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/macOS/">macOS</a><a class="post-meta__tags" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/">黑苹果</a><a class="post-meta__tags" href="/tags/OpenCore/">OpenCore</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.mos.cms.futurecdn.net/mjAxpFYMNMhnxSFYoMgWwB.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/cn/Hexo-Setup/" title="Hexo Setup"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://tommy.net.cn/2020/07/07/upgrade-hexo-to-v4-2-1/hexo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hexo Setup</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Twikoo</span><span id="switch-btn"></span><span class="second-comment">Valine</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://avatars1.githubusercontent.com/u/62329498?s=400&amp;u=20198ec972904a758bc5f6ba4888c5ac6b6270fb&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tyson Hu</div><div class="author-info__description">一个因突发奇想而创建的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Tyson-Hu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tyson-Hu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2535280450&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://www.instagram.com/tyson.hu/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://twitter.com/tysonhu_twr" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a><a class="social-icon" href="mailto:tianzheh@buffalo.edu" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论首选Twikoo，如果无法使用或者延迟过高可尝试Valine。邮箱处填写QQ邮箱即可获取QQ头像。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E-File-Description"><span class="toc-number">1.</span> <span class="toc-text">文件说明 &#x2F; File Description</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-number">2.</span> <span class="toc-text">写在最前</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">基础配置 &amp; 知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-number">5.</span> <span class="toc-text">更新</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-19-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.1.</span> <span class="toc-text">8&#x2F;19 更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-13-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.2.</span> <span class="toc-text">8&#x2F;13 更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.3.</span> <span class="toc-text">8&#x2F;4 更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-22-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.4.</span> <span class="toc-text">7&#x2F;22 更新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ECLT%E7%9A%84%E4%BF%AE%E5%A4%8D"><span class="toc-number">5.4.1.</span> <span class="toc-text">关于CLT的修复</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-16-%E6%9B%B4%E6%96%B0-CLOVER-v5120"><span class="toc-number">5.5.</span> <span class="toc-text">7&#x2F;16 更新 (CLOVER v5120)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-15-%E6%9B%B4%E6%96%B0-%EF%BC%88%E2%80%9D%E9%9D%9E-Big-Sur%E2%80%9C-Catalina%EF%BC%89"><span class="toc-number">5.6.</span> <span class="toc-text">7&#x2F;15 更新 （”非 Big Sur“ &#x2F; Catalina）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-11-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.7.</span> <span class="toc-text">7&#x2F;11 更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-7-%E6%9B%B4%E6%96%B0"><span class="toc-number">5.8.</span> <span class="toc-text">7&#x2F;7 更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">一些问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%A1%AC%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">7.</span> <span class="toc-text">[1]硬件介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%A1%AC%E4%BB%B6%E6%9B%B4%E6%8D%A2-%E7%A1%AC%E4%BB%B6%E5%8D%87%E7%BA%A7"><span class="toc-number">7.0.1.</span> <span class="toc-text">[1-1]硬件更换 &#x2F; 硬件升级</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="toc-number">8.</span> <span class="toc-text">[2]最终效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%A7%A3%E9%94%81BIOS"><span class="toc-number">9.</span> <span class="toc-text">[3]解锁BIOS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Base%E7%89%88-BIOS-%E8%A7%A3%E9%94%81"><span class="toc-number">9.1.</span> <span class="toc-text">[3-1]Base版 BIOS 解锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-1-%E6%8F%90%E5%8F%96%E6%9C%BA%E5%99%A8%E7%8E%B0%E4%BD%BF%E7%94%A8%E7%9A%84-BIOS"><span class="toc-number">9.2.</span> <span class="toc-text">[3-1-1]提取机器现使用的 BIOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Advanced%E7%89%88-BIOS%E8%A7%A3%E9%94%81"><span class="toc-number">9.3.</span> <span class="toc-text">[3-2]Advanced版 BIOS解锁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number">10.</span> <span class="toc-text">[4]安装前的准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-BIOS%E8%AE%BE%E7%BD%AE"><span class="toc-number">10.1.</span> <span class="toc-text">[4-1]BIOS设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="toc-number">10.2.</span> <span class="toc-text">[4-2]软件下载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-number">11.</span> <span class="toc-text">[5]系统安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%AD%A5%E9%AA%A4%E5%9D%87%E5%9C%A8macOS%E4%B8%8A%E6%89%A7%E8%A1%8C"><span class="toc-number">11.1.</span> <span class="toc-text">以下步骤均在macOS上执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%AD%A5%E9%AA%A4%E5%9D%87%E5%9C%A8Window%E4%B8%8B%E6%89%A7%E8%A1%8C"><span class="toc-number">11.2.</span> <span class="toc-text">以下步骤均在Window下执行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E4%B8%80%E4%BA%9B%E4%BC%98%E5%8C%96"><span class="toc-number">12.</span> <span class="toc-text">[6]一些优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E6%89%93%E5%BC%80TRIM"><span class="toc-number">12.1.</span> <span class="toc-text">[6-1] 打开TRIM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E6%B4%97%E7%99%BD%E5%BA%8F%E5%88%97%E5%8F%B7-%E4%B8%89%E7%A0%81"><span class="toc-number">12.2.</span> <span class="toc-text">[6-2]洗白序列号 &#x2F; 三码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E7%94%B5%E6%B1%A0%E4%B8%8D%E6%98%BE%E7%A4%BA-%E6%9C%80%E6%96%B0%E7%89%88%E7%9A%84-VirtualSMC-%E5%B7%B2%E4%BF%AE%E5%A4%8D%E8%AF%A5%E9%97%AE%E9%A2%98%EF%BC%81"><span class="toc-number">12.3.</span> <span class="toc-text">[6-3]电池不显示 (最新版的 VirtualSMC 已修复该问题！)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E7%8A%B6%E6%80%81%E6%A0%8F%E7%9A%84%E5%8D%A1%E9%A1%BF"><span class="toc-number">12.4.</span> <span class="toc-text">[6-4]状态栏的卡顿</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-1-%E5%88%A0%E9%99%A4-WiFiAgent-%E8%A7%A3%E9%94%81%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98"><span class="toc-number">12.4.1.</span> <span class="toc-text">[6-4-1]删除 WiFiAgent 解锁卡顿问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-2-%E7%9B%B4%E6%8E%A5%E6%9B%B4%E6%8D%A2%E5%8D%9A%E9%80%9A%E7%BD%91%E5%8D%A1"><span class="toc-number">12.4.2.</span> <span class="toc-text">[6-4-2]直接更换博通网卡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-%E5%BC%80%E5%90%AFHiDPI"><span class="toc-number">12.5.</span> <span class="toc-text">[6-5]开启HiDPI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-1-%E5%B0%86%E6%97%A7%E7%B3%BB%E7%BB%9F%E7%9A%84-HiDPI-%E8%BD%AC%E7%A7%BB%E5%88%B0-macOS-11-%E9%9C%80%E8%A6%81%E4%BD%A0%E6%97%A7%E7%B3%BB%E7%BB%9F%E5%B7%B2%E5%BC%80%E5%90%AFHiDPI"><span class="toc-number">12.5.1.</span> <span class="toc-text">[6-5-1]将旧系统的 HiDPI 转移到 macOS 11 (需要你旧系统已开启HiDPI)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-2-%E9%80%9A%E8%BF%87-one-key-hidpi-%E5%BC%80%E5%90%AF"><span class="toc-number">12.5.2.</span> <span class="toc-text">[6-5-2]通过 one-key-hidpi 开启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-6-%E5%85%B3%E9%97%AD-SIP-Authenticated-root"><span class="toc-number">12.6.</span> <span class="toc-text">[6-6]关闭 SIP &amp; Authenticated-root</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-7-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E5%BF%AB%E7%85%A7-%E8%BF%99%E9%87%8C%E5%B9%B6%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BF%AE%E6%94%B9%EF%BC%8C%E5%9B%A0%E4%B8%BA%E4%BC%9A%E5%A4%B1%E5%8E%BBOTA%E7%9A%84%E6%9C%BA%E4%BC%9A%EF%BC%81"><span class="toc-number">12.7.</span> <span class="toc-text">[6-7]修改系统快照 [这里并不推荐修改，因为会失去OTA的机会！]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-8-%E5%90%AF%E7%94%A8%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6"><span class="toc-number">12.8.</span> <span class="toc-text">[6-8]启用修改系统文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-9-USB%E5%AE%9A%E5%88%B6%E9%A9%B1%E5%8A%A8"><span class="toc-number">12.9.</span> <span class="toc-text">[6-9]USB定制驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-10-%E4%BF%AE%E5%A4%8DRecovery%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5"><span class="toc-number">12.10.</span> <span class="toc-text">[6-10]修复Recovery无法进入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-11-%E8%A7%A3%E5%86%B3App-Store%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">12.11.</span> <span class="toc-text">[6-11]解决App Store无法登录的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-12-%E4%BF%AE%E6%94%B9%E6%98%BE%E5%AD%98%E5%A4%A7%E5%B0%8F-%E5%BF%83%E7%90%86%E4%BC%98%E5%8C%96"><span class="toc-number">12.12.</span> <span class="toc-text">[6-12]修改显存大小 (心理优化)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-13-%E8%A7%A3%E5%86%B3-macOS-%E4%B8%8E-Windows-%E6%97%B6%E9%97%B4%E4%B8%8D%E5%90%8C%E6%AD%A5"><span class="toc-number">12.13.</span> <span class="toc-text">[6-13]解决 macOS 与 Windows 时间不同步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E9%99%84%E5%8A%A0%EF%BC%9AU%E7%9B%98%E7%9B%B4%E8%A3%85"><span class="toc-number">13.</span> <span class="toc-text">[7]附加：U盘直装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%EF%BC%9A"><span class="toc-number">13.1.</span> <span class="toc-text">准备：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Config-%E4%BF%AE%E6%94%B9-%EF%BC%88OpenCore-0-6-0%EF%BC%89%EF%BC%9A"><span class="toc-number">13.2.</span> <span class="toc-text">Config 修改 （OpenCore 0.6.0）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5U%E7%9B%98"><span class="toc-number">13.3.</span> <span class="toc-text">将安装文件写入U盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">13.4.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%A1%B9%E9%97%AE%E9%A2%98"><span class="toc-number">13.5.</span> <span class="toc-text">启动项问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E5%8F%82%E8%80%83"><span class="toc-number">14.</span> <span class="toc-text">[8]参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E5%8F%98%E6%9B%B4%E7%9B%AE%E5%BD%95"><span class="toc-number">15.</span> <span class="toc-text">[9]变更目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E8%AE%A1%E5%88%92-Plans-%EF%BC%9A"><span class="toc-number">15.1.</span> <span class="toc-text">未来计划 &#x2F; Plans ：</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/en/Raft/" title="Consensus Algorithm - Raft"><img src= "/img/loading.gif" data-lazy-src="https://raft.github.io/logo/solo.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Consensus Algorithm - Raft"/></a><div class="content"><a class="title" href="/en/Raft/" title="Consensus Algorithm - Raft">Consensus Algorithm - Raft</a><time datetime="2023-05-02T13:57:01.000Z" title="发表于 2023-05-02 09:57:01">2023-05-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/cn/algo-intro/" title="Leetcode 刷题前言"><img src= "/img/loading.gif" data-lazy-src="https://repository-images.githubusercontent.com/408927712/1c5ce46e-266f-43f0-b543-75bf341239b5" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Leetcode 刷题前言"/></a><div class="content"><a class="title" href="/cn/algo-intro/" title="Leetcode 刷题前言">Leetcode 刷题前言</a><time datetime="2022-08-08T05:12:58.000Z" title="发表于 2022-08-08 01:12:58">2022-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/en/algo-intro/" title="Algorithm Introduction"><img src= "/img/loading.gif" data-lazy-src="https://repository-images.githubusercontent.com/408927712/1c5ce46e-266f-43f0-b543-75bf341239b5" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Algorithm Introduction"/></a><div class="content"><a class="title" href="/en/algo-intro/" title="Algorithm Introduction">Algorithm Introduction</a><time datetime="2022-08-08T01:39:11.000Z" title="发表于 2022-08-07 21:39:11">2022-08-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/cn/LO3-6-Immutability/" title="CSE116的学习笔记-Lec3-6:Immutability"><img src= "/img/loading.gif" data-lazy-src="https://upload.wikimedia.org/wikipedia/commons/8/85/Scala_logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSE116的学习笔记-Lec3-6:Immutability"/></a><div class="content"><a class="title" href="/cn/LO3-6-Immutability/" title="CSE116的学习笔记-Lec3-6:Immutability">CSE116的学习笔记-Lec3-6:Immutability</a><time datetime="2020-12-27T18:22:31.000Z" title="发表于 2020-12-27 13:22:31">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/cn/LO5-6-WebSocket-App/" title="CSE116的学习笔记-Lec5-6:WebSocket_App"><img src= "/img/loading.gif" data-lazy-src="https://upload.wikimedia.org/wikipedia/commons/8/85/Scala_logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSE116的学习笔记-Lec5-6:WebSocket_App"/></a><div class="content"><a class="title" href="/cn/LO5-6-WebSocket-App/" title="CSE116的学习笔记-Lec5-6:WebSocket_App">CSE116的学习笔记-Lec5-6:WebSocket_App</a><time datetime="2020-12-27T17:50:56.000Z" title="发表于 2020-12-27 12:50:56">2020-12-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Tyson Hu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">生而为人，我很抱歉</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
   if (typeof pangu === 'object') pangu.autoSpacingPage()
   else {
     getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
@@ -1463,27 +1495,57 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
-  endLoading: () => {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loading-box').classList.add("loaded")
-  },
-  initLoading: () => {
-    document.body.style.overflow = '';
-    document.getElementById('loading-box').classList.remove("loaded")
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
 
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
   }
-}
-window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
       envId: 'https://blog-twikoo-ten.vercel.app',
       region: '',
-      onCommentLoaded: function () {
+      onCommentLoaded: () => {
         btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
       }
     }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(init)
   }
 
   const getCount = () => {
@@ -1494,36 +1556,24 @@ window.addEventListener('load',preloader.endLoading())</script><div class="js-pj
       region: '',
       urls: [window.location.pathname],
       includeReply: false
-    }).then(function (res) {
-      countELement.innerText = res[0].count
-    }).catch(function (err) {
-      console.error(err);
-    });
-  }
-
-  const runFn = () => {
-    init()
-    GLOBAL_CONFIG_SITE.isPost && getCount()
-  }
-
-  const loadTwikoo = () => {
-    if (typeof twikoo === 'object') {
-      setTimeout(runFn,0)
-      return
-    } 
-    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
   }
 
   if ('Twikoo' === 'Twikoo' || !false) {
     if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
-    else loadTwikoo()
-  } else {
-    window.loadOtherComment = () => {
+    else {
       loadTwikoo()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
     }
+  } else {
+    window.loadOtherComment = loadTwikoo
   }
-})()</script><script>function loadValine () {
-  function initValine () {
+})()</script><script>(() => {
+  const initValine = () => {
     const valine = new Valine(Object.assign({
       el: '#vcomment',
       appId: 'xHCgzmchP05ijopdHb7G7Rwk-MdYXbMMI',
@@ -1536,18 +1586,21 @@ window.addEventListener('load',preloader.endLoading())</script><div class="js-pj
     }, {"placeholder":"要不打点什么的东西?","recordIP":true,"enableQQ":true,"emojiCDN":"https://i0.hdslb.com/bfs/emote/"}))
   }
 
-  if (typeof Valine === 'function') initValine() 
-  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
-}
-
-if ('Twikoo' === 'Valine' || !false) {
-  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
-  else setTimeout(loadValine, 0)
-} else {
-  function loadOtherComment () {
-    loadValine()
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js')
+      initValine()
+    }
   }
-}</script></div><script>window.addEventListener('load', () => {
+
+  if ('Twikoo' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script>window.addEventListener('load', () => {
   const changeContent = (content) => {
     if (content === '') return content
 
@@ -1584,7 +1637,7 @@ if ('Twikoo' === 'Valine' || !false) {
         generateHtml(twikooArray)
       }).catch(function (err) {
         const $dom = document.querySelector('#card-newest-comments .aside-list')
-        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
       })
     }
 
@@ -1617,7 +1670,7 @@ if ('Twikoo' === 'Valine' || !false) {
     }
 
     let $dom = document.querySelector('#card-newest-comments .aside-list')
-    $dom.innerHTML= result
+    $dom && ($dom.innerHTML= result)
     window.lazyLoadInstance && window.lazyLoadInstance.update()
     window.pjax && window.pjax.refresh($dom)
   }
@@ -1639,35 +1692,52 @@ if ('Twikoo' === 'Valine' || !false) {
 POWERMODE.shake = true;
 POWERMODE.mobile = true;
 document.body.addEventListener('input', POWERMODE);
-</script><script>(function(d, w, c) {
-    w.ChatraID = 'M5fnBvYBprT64WyMZ';
-    var s = d.createElement('script');
-    w[c] = w[c] || function() {
-        (w[c].q = w[c].q || []).push(arguments);
-    };
-    s.async = true;
-    s.src = 'https://call.chatra.io/chatra.js';
-    if (d.head) d.head.appendChild(s);
-})(document, window, 'Chatra');
+</script><script>(() => {
+  const isChatBtn = true
+  const isChatHideShow = true
 
-if (true) {
-  var chatBtnFn = () => {
-    var chatBtn = document.getElementById("chat_btn")
-    chatBtn.addEventListener("click", function(){
-      Chatra('openChat')
-    });
-  }
-  chatBtnFn()
-} else {
-  if (true) {
-    function chatBtnHide () {
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
       Chatra('hide')
     }
-    function chatBtnShow () {
+
+    const open = () => {
+      Chatra('openChat', true)
       Chatra('show')
     }
+
+    window.ChatraSetup = {
+      startHidden: true
+    }
+  
+    window.chatBtnFn = () => {
+      const isShow = document.getElementById('chatra').classList.contains('chatra--expanded')
+      isShow ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => {
+        Chatra('hide')
+      },
+      show: () => {
+        Chatra('show')
+      }
+    }
   }
-}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  (function(d, w, c) {
+    w.ChatraID = 'M5fnBvYBprT64WyMZ'
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+
+})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
@@ -1679,12 +1749,11 @@ var pjax = new Pjax({
 
 document.addEventListener('pjax:send', function () {
 
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
 
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  document.getElementById('rightside').classList.remove('rightside-show')
   
   if (window.aplayers) {
     for (let i = 0; i < window.aplayers.length; i++) {
@@ -1716,7 +1785,6 @@ document.addEventListener('pjax:complete', function () {
 
   GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-  typeof chatBtnFn === 'function' && chatBtnFn()
   typeof panguInit === 'function' && panguInit()
 
   // google analytics
@@ -1729,12 +1797,10 @@ document.addEventListener('pjax:complete', function () {
 
   // prismjs
   typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
 })
 
-document.addEventListener('pjax:error', (e) => {
+document.addEventListener('pjax:error', e => {
   if (e.request.status === 404) {
     pjax.loadUrl('/404.html')
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
