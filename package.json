@@ -2,7 +2,7 @@
   "name": "tianzhe.me",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tyson-hu.github.io",
+  "homepage": "https://tianzhe.me",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
