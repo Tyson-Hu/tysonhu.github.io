@@ -4,14 +4,18 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node ./scripts/gen-rss.js && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "14.0.4",
+    "nextra": "^2.13.2",
+    "nextra-theme-blog": "^2.13.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "^20",
