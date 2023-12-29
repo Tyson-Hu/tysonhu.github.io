@@ -1,26 +1,38 @@
 {
-  "name": "tianzhe.me",
+  "name": "nextjs-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node ./scripts/gen-rss.js && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "custom-cursor-react": "^1.0.5",
     "gray-matter": "^4.0.3",
+    "gsap": "^3.12.4",
     "next": "14.0.4",
-    "nextra": "^2.13.2",
-    "nextra-theme-blog": "^2.13.2",
+    "next-themes": "^0.2.1",
     "react": "^18",
+    "react-datepicker": "^4.25.0",
     "react-dom": "^18",
-    "rss": "^1.2.2"
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-textarea-autosize": "^8.5.3",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-datepicker": "^4.19.4",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.11",
+    "@types/react-textarea-autosize": "^8.0.0",
+    "@types/uuid": "^9.0.7",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
