@@ -1,7 +1,8 @@
 import fs from 'fs';
 import { join } from 'path';
+import { NextApiRequest, NextApiResponse } from "next";
 
-const handler = (req, res) => {
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
     const portfolioData = join(process.cwd(), 'src', 'data', 'portfolio.json');
     if (process.env.NODE_ENV === 'development') {
         if (req.method === 'POST') {

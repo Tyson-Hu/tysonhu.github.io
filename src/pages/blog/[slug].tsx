@@ -10,8 +10,9 @@ import Cursor from "@/components/Cursor";
 import BlogEditor, {Post} from "@/components/BlogEditor";
 import ContentSection from "@/components/ContentSection";
 import { stagger } from "@/animations";
-import {getPostSlugs, getAllPosts, getPostBySlug} from "@/utils/api";
+import { getAllPosts, getPostBySlug } from "@/utils/api";
 import { useIsomorphicLayoutEffect } from "@/utils";
+import {GetStaticProps} from "next";
 
 interface BlogPostProps {
     post: Post;
@@ -84,7 +85,13 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
     );
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    if (!params || typeof params.slug !== "string") {
+        return {
+            notFound: true,
+        };
+    }
+
     const post = getPostBySlug(params.slug, [
         "date",
         "slug",

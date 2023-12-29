@@ -2,10 +2,11 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import { v4 as uuidv4 } from "uuid";
+import { NextApiRequest, NextApiResponse } from "next";
 
 import { getRandomImage } from "@/utils";
 
-const blogHandler = async (req, res) => {
+const blogHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     const postsDirectory = join(process.cwd(), `/_posts/${uuidv4()}.md`);
     if (process.env.NODE_ENV === "development") {
         if (req.method === "POST") {

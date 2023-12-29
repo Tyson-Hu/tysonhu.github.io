@@ -1,8 +1,9 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
+import { NextApiRequest, NextApiResponse } from "next";
 
-const editBlog = (req, res) => {
+const editBlog = (req: NextApiRequest, res: NextApiResponse) => {
     const postsDirectory = join(process.cwd(), "_posts");
     if (process.env.NODE_ENV === "development") {
         if (req.method === "POST") {
