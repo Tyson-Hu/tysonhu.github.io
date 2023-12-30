@@ -26,10 +26,10 @@ const Footer = () => {
             </div>
         </div>
         <h1 className="text-sm text-bold mt-2 laptop:mt-10 p-2 laptop:p-0">
-            Made with ❤️ by {" "}
-            <Link href="https://tianzhe.me" className="underline underline-offset-1">
-                Tyson Hu
-            </Link>
+            Made with ❤️ | 2023 © Tyson Hu.
+            {/*<Link href="https://tianzhe.me" className="underline underline-offset-1">*/}
+            {/*    Tyson Hu*/}
+            {/*</Link>*/}
         </h1>
     </>;
 };
