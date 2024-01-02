@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&display=swap");
 @import "./markdown.css";
 
 @tailwind base;
@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 * {
-    font-family: "Hind";
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {

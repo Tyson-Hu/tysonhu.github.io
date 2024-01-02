@@ -45,7 +45,8 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                                             src={`/images/${
                                                 theme === "dark" ? "moon.svg" : "sun.svg"
                                             }`}
-                                        ></img>
+                                            alt="theme"
+                                        />
                                     </Button>
                                 )}
 
@@ -61,7 +62,8 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                                                     ? "cancel.svg"
                                                     : "cancel-white.svg"
                                         }`}
-                                    ></img>
+                                        alt="menu"
+                                    />
                                 </Popover.Button>
                             </div>
                         </div>
@@ -158,7 +160,8 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                                 <img
                                     className="h-6"
                                     src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                                ></img>
+                                    alt="theme"
+                                />
                             </Button>
                         )}
                     </div>
@@ -188,7 +191,8 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                                 <img
                                     className="h-6"
                                     src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                                ></img>
+                                    alt="theme"
+                                />
                             </Button>
                         )}
                     </div>
