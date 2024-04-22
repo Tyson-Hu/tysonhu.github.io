@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                                     <Button onClick={handleWorkScroll}>Work</Button>
                                     <Button onClick={handleAboutScroll}>About</Button>
                                     {showBlog && (
-                                        <Button onClick={() => router.push("/blog")}>Blog</Button>
+                                        <Button onClick={() => router.push("/blog")}>Projects</Button>
                                     )}
                                     {showResume && (
                                         <Button
@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                                         Home
                                     </Button>
                                     {showBlog && (
-                                        <Button onClick={() => router.push("/blog")}>Blog</Button>
+                                        <Button onClick={() => router.push("/blog")}>Projects</Button>
                                     )}
                                     {showResume && (
                                         <Button
@@ -139,7 +139,7 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                         <Button onClick={handleWorkScroll}>Work</Button>
                         <Button onClick={handleAboutScroll}>About</Button>
                         {showBlog && (
-                            <Button onClick={() => router.push("/blog")}>Blog</Button>
+                            <Button onClick={() => router.push("/blog")}>Projects</Button>
                         )}
                         {showResume && (
                             <Button
@@ -169,7 +169,7 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                     <div className="flex">
                         <Button onClick={() => router.push("/")}>Home</Button>
                         {showBlog && (
-                            <Button onClick={() => router.push("/blog")}>Blog</Button>
+                            <Button onClick={() => router.push("/blog")}>Projects</Button>
                         )}
                         {showResume && (
                             <Button
@@ -180,7 +180,7 @@ const Header: React.FC<HeaderProps> = ({ handleWorkScroll, handleAboutScroll, is
                             </Button>
                         )}
 
-                        <Button onClick={() => window.open("mailto:me@tianzhe.me")}>
+                        <Button onClick={() => window.open("mailto:tysonhu.dev@gmail.com")}>
                             Contact
                         </Button>
 

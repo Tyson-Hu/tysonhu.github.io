@@ -15,7 +15,7 @@ const Footer = () => {
                     <h1 className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">TOGETHER.</h1>
                     <Button
                         type="primary"
-                        onClick={() => window.open("mailto:me@tianzhe.me")}
+                        onClick={() => window.open("mailto:tysonhu.dev@gmail.com")}
                     >
                         Schedule a call
                     </Button>
@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
         </div>
         <h1 className="text-sm text-bold mt-2 laptop:mt-10 p-2 laptop:p-0">
-            Made with ❤️ | 2023 © Tyson Hu.
+            Made with ❤️ | 2024 © Tyson Hu.
             {/*<Link href="https://tianzhe.me" className="underline underline-offset-1">*/}
             {/*    Tyson Hu*/}
             {/*</Link>*/}
